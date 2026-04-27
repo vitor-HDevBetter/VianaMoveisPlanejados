@@ -232,6 +232,53 @@
     </section>
 
     <!-- ============================================================
+         GALERIA / CARROSSEL DE FOTOS
+    ============================================================ -->
+    <section class="photo-showcase" id="galeria" aria-labelledby="photo-showcase-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="badge badge--dark">Projetos Reais</span>
+          <h2 id="photo-showcase-title">Inspire-se com nossos <span class="highlight">ambientes planejados</span></h2>
+          <p>Um carrossel moderno com alguns dos estilos que desenvolvemos para cozinha, closet, quarto e home office.</p>
+        </div>
+
+        <div class="photo-carousel reveal" role="region" aria-label="Galeria de fotos de projetos" aria-roledescription="carrossel">
+          <div class="photo-carousel__track" id="photoCarouselTrack">
+            <figure class="photo-slide">
+              <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1400&q=80" alt="Cozinha planejada com acabamento em madeira clara e iluminação embutida." loading="lazy" />
+              <figcaption>Cozinha planejada contemporânea</figcaption>
+            </figure>
+
+            <figure class="photo-slide">
+              <img src="https://images.unsplash.com/photo-1616627452459-4d3f6d7ef8b8?auto=format&fit=crop&w=1400&q=80" alt="Quarto com guarda-roupa sob medida em tons neutros e detalhes em vidro." loading="lazy" />
+              <figcaption>Quarto com guarda-roupa sob medida</figcaption>
+            </figure>
+
+            <figure class="photo-slide">
+              <img src="https://images.unsplash.com/photo-1616594039964-8b7fb36d7aa5?auto=format&fit=crop&w=1400&q=80" alt="Home office planejado com bancada ampla e prateleiras funcionais." loading="lazy" />
+              <figcaption>Home office elegante e funcional</figcaption>
+            </figure>
+
+            <figure class="photo-slide">
+              <img src="https://images.unsplash.com/photo-1617104551722-3b2d5136645f?auto=format&fit=crop&w=1400&q=80" alt="Closet planejado com nichos iluminados e portas de correr." loading="lazy" />
+              <figcaption>Closet com organização inteligente</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="photo-carousel__controls" aria-label="Controles da galeria de fotos">
+          <button class="carousel__btn" id="photoCarouselPrev" aria-label="Foto anterior">
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.707 4.293a1 1 0 010 1.414L8.414 10l4.293 4.293a1 1 0 01-1.414 1.414l-5-5a1 1 0 010-1.414l5-5a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          </button>
+          <div class="carousel__dots" id="photoCarouselDots" role="tablist" aria-label="Selecionar foto da galeria"></div>
+          <button class="carousel__btn" id="photoCarouselNext" aria-label="Próxima foto">
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M7.293 15.707a1 1 0 010-1.414L11.586 10 7.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
          SERVICES / FEATURES SECTION
     ============================================================ -->
     <section class="services" id="servicos" aria-labelledby="services-title">
