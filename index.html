@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Viana Móveis Planejados – Móveis sob medida com qualidade premium e design exclusivo para sua casa, escritório ou empresa." />
+  <meta name="keywords" content="móveis planejados, móveis sob medida, marcenaria, cozinha planejada, guarda-roupa planejado, closet, escritório planejado, Viana Móveis" />
+  <meta property="og:title" content="Viana Móveis Planejados – Qualidade e Design em Cada Detalhe" />
+  <meta property="og:description" content="Transformamos espaços com móveis sob medida de alta qualidade. Atendimento personalizado, projetos exclusivos." />
+  <meta property="og:type" content="website" />
+  <title>Viana Móveis Planejados – Qualidade e Design em Cada Detalhe</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       FLOATING WHATSAPP BUTTON
+  ============================================================ -->
+  <a
+    href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20um%20orçamento%20de%20móveis%20planejados."
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Fale conosco pelo WhatsApp"
+  >
+    <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+      <path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.471 2.027 7.773L0 32l8.418-2.006A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.773-1.853l-.486-.288-5.002 1.192 1.23-4.865-.317-.5A13.27 13.27 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.28-9.92c-.4-.2-2.36-1.16-2.72-1.293-.36-.133-.623-.2-.887.2s-1.02 1.293-1.247 1.56c-.227.267-.453.3-.853.1-.4-.2-1.687-.62-3.213-1.98-1.187-1.06-1.987-2.367-2.22-2.767-.233-.4-.024-.613.176-.813.18-.18.4-.467.6-.7.2-.233.267-.4.4-.667.133-.267.067-.5-.033-.7-.1-.2-.887-2.147-1.213-2.94-.32-.773-.647-.667-.887-.68h-.753c-.267 0-.7.1-1.067.5s-1.4 1.367-1.4 3.333 1.433 3.867 1.633 4.133c.2.267 2.82 4.307 6.833 6.04.953.413 1.7.66 2.28.847.957.307 1.827.263 2.517.16.767-.113 2.36-.967 2.693-1.9.333-.933.333-1.733.233-1.9-.1-.167-.36-.267-.76-.467z"/>
+    </svg>
+    <span class="whatsapp-label">WhatsApp</span>
+  </a>
+
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <header class="navbar" id="navbar" role="banner">
+    <div class="container navbar__inner">
+
+      <!-- Logo -->
+      <a href="#hero" class="navbar__logo" aria-label="Viana Móveis Planejados – Página inicial">
+        <!-- Replace src with your actual logo file: <img src="logo.png" alt="Viana Móveis Planejados" /> -->
+        <svg class="logo-icon" viewBox="0 0 48 36" fill="none" aria-hidden="true">
+          <rect x="4" y="18" width="40" height="14" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+          <rect x="10" y="8" width="28" height="12" rx="1.5" stroke="currentColor" stroke-width="1.8" fill="none"/>
+          <circle cx="24" cy="22" r="3.5" stroke="currentColor" stroke-width="1.8" fill="none"/>
+          <line x1="4" y1="22" x2="0" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <line x1="48" y1="22" x2="44" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <line x1="10" y1="32" x2="10" y2="36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <line x1="38" y1="32" x2="38" y2="36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="logo-text">
+          <span class="logo-brand">Viana</span>
+          <span class="logo-sub">Móveis Planejados</span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="navbar__nav" aria-label="Menu principal">
+        <ul>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#diferenciais">Diferenciais</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <!-- CTA + Hamburger -->
+      <div class="navbar__actions">
+        <a href="#contato" class="btn btn--outline">Orçamento Grátis</a>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Menu mobile" aria-hidden="true">
+      <ul>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#diferenciais">Diferenciais</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a href="#contato" class="btn btn--primary">Orçamento Grátis</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         HERO SECTION
+    ============================================================ -->
+    <section class="hero" id="hero" aria-labelledby="hero-headline">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__blob hero__blob--1"></div>
+        <div class="hero__blob hero__blob--2"></div>
+        <div class="hero__grid"></div>
+      </div>
+
+      <div class="container hero__inner">
+        <div class="hero__content reveal">
+          <span class="badge">✦ Móveis Sob Medida</span>
+          <h1 id="hero-headline">
+            Transforme seu lar com móveis
+            <span class="highlight">exclusivos e planejados</span>
+            para você
+          </h1>
+          <p class="hero__sub">
+            Criamos ambientes únicos com design personalizado, materiais de qualidade premium e acabamento impecável. Do projeto à entrega, cada detalhe é pensado para você.
+          </p>
+          <div class="hero__ctas">
+            <a href="#contato" class="btn btn--primary btn--lg">
+              Solicitar Orçamento Grátis
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </a>
+            <a href="#servicos" class="btn btn--ghost">
+              Ver Nossos Projetos
+            </a>
+          </div>
+          <div class="hero__stats">
+            <div class="stat">
+              <strong>+500</strong>
+              <span>Projetos Entregues</span>
+            </div>
+            <div class="stat__divider" aria-hidden="true"></div>
+            <div class="stat">
+              <strong>15+</strong>
+              <span>Anos de Experiência</span>
+            </div>
+            <div class="stat__divider" aria-hidden="true"></div>
+            <div class="stat">
+              <strong>98%</strong>
+              <span>Clientes Satisfeitos</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual -->
+        <div class="hero__visual reveal reveal--right" aria-hidden="true">
+          <div class="hero__card-wrap">
+            <div class="hero__room">
+              <!-- Stylized furniture illustration using CSS/SVG -->
+              <svg viewBox="0 0 420 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustração de ambiente com móveis planejados">
+                <!-- Room perspective floor -->
+                <path d="M20 280 L200 180 L400 280 Z" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+                <!-- Back wall -->
+                <rect x="80" y="60" width="260" height="200" rx="4" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+                <!-- Wardrobe -->
+                <rect x="90" y="70" width="100" height="180" rx="3" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+                <line x1="140" y1="70" x2="140" y2="250" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+                <circle cx="132" cy="165" r="3" fill="rgba(255,255,255,0.5)"/>
+                <circle cx="148" cy="165" r="3" fill="rgba(255,255,255,0.5)"/>
+                <!-- TV Panel -->
+                <rect x="200" y="130" width="130" height="80" rx="3" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+                <rect x="215" y="145" width="100" height="50" rx="2" fill="rgba(61,107,181,0.4)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+                <line x1="265" y1="210" x2="265" y2="225" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                <rect x="250" y="225" width="30" height="5" rx="2" fill="rgba(255,255,255,0.2)"/>
+                <!-- Floating shelf -->
+                <rect x="200" y="100" width="130" height="8" rx="2" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+                <rect x="210" y="84" width="20" height="16" rx="1" fill="rgba(255,255,255,0.15)"/>
+                <rect x="238" y="88" width="15" height="12" rx="1" fill="rgba(255,255,255,0.15)"/>
+                <rect x="260" y="86" width="18" height="14" rx="1" fill="rgba(255,255,255,0.15)"/>
+                <!-- Floor -->
+                <rect x="80" y="250" width="260" height="10" rx="0" fill="rgba(255,255,255,0.05)"/>
+                <!-- Decorative plants -->
+                <ellipse cx="355" cy="240" rx="15" ry="20" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+                <rect x="350" y="255" width="10" height="15" rx="2" fill="rgba(255,255,255,0.1)"/>
+                <!-- Light rays -->
+                <circle cx="340" cy="80" r="25" fill="rgba(255,255,255,0.06)"/>
+                <circle cx="340" cy="80" r="15" fill="rgba(255,255,255,0.08)"/>
+              </svg>
+            </div>
+            <!-- Floating badge cards -->
+            <div class="hero__badge-card hero__badge-card--1">
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <div>
+                <strong>4.9/5</strong>
+                <span>Avaliação média</span>
+              </div>
+            </div>
+            <div class="hero__badge-card hero__badge-card--2">
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <div>
+                <strong>Garantia</strong>
+                <span>5 anos de garantia</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="hero__scroll" aria-hidden="true">
+        <div class="hero__scroll-dot"></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SOCIAL PROOF / LOGOS
+    ============================================================ -->
+    <section class="logos-bar" aria-label="Marcas e parceiros">
+      <div class="container">
+        <p class="logos-bar__label">Trabalhamos com os melhores materiais do mercado</p>
+        <div class="logos-bar__track">
+          <div class="logos-bar__inner">
+            <!-- Repeat brands for infinite scroll illusion -->
+            <span class="logo-pill">Arauco</span>
+            <span class="logo-pill">Eucatex</span>
+            <span class="logo-pill">Duratex</span>
+            <span class="logo-pill">Hafele</span>
+            <span class="logo-pill">Blum</span>
+            <span class="logo-pill">Grass</span>
+            <span class="logo-pill">Mdf Brasil</span>
+            <span class="logo-pill">Arauco</span>
+            <span class="logo-pill">Eucatex</span>
+            <span class="logo-pill">Duratex</span>
+            <span class="logo-pill">Hafele</span>
+            <span class="logo-pill">Blum</span>
+            <span class="logo-pill">Grass</span>
+            <span class="logo-pill">Mdf Brasil</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SERVICES / FEATURES SECTION
+    ============================================================ -->
+    <section class="services" id="servicos" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="badge badge--dark">Nossos Serviços</span>
+          <h2 id="services-title">Soluções completas em <span class="highlight">móveis planejados</span></h2>
+          <p>Do projeto à instalação, cuidamos de cada etapa com atenção e excelência.</p>
+        </div>
+
+        <div class="services__grid">
+
+          <article class="service-card reveal" tabindex="0">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="8" y="14" width="32" height="26" rx="2"/>
+                <path d="M16 14V10a2 2 0 012-2h12a2 2 0 012 2v4"/>
+                <line x1="24" y1="22" x2="24" y2="32"/>
+                <line x1="19" y1="27" x2="29" y2="27"/>
+              </svg>
+            </div>
+            <h3>Cozinhas Planejadas</h3>
+            <p>Cozinhas funcionais e elegantes, projetadas para maximizar espaço e facilitar o dia a dia com armários, bancadas e nichos personalizados.</p>
+            <a href="#contato" class="card-link">Solicitar projeto <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="service-card reveal" tabindex="0">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="6" y="10" width="36" height="30" rx="2"/>
+                <line x1="18" y1="10" x2="18" y2="40"/>
+                <line x1="30" y1="10" x2="30" y2="40"/>
+                <line x1="18" y1="24" x2="30" y2="24"/>
+                <circle cx="14" cy="25" r="1.5" fill="currentColor"/>
+                <circle cx="34" cy="25" r="1.5" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>Quartos e Closets</h3>
+            <p>Guarda-roupas sob medida, closets personalizados e cabeceiras planejadas que transformam seu quarto num ambiente de descanso e organização.</p>
+            <a href="#contato" class="card-link">Solicitar projeto <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="service-card reveal" tabindex="0">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="8" y="28" width="32" height="12" rx="2"/>
+                <rect x="12" y="16" width="24" height="12" rx="2"/>
+                <rect x="16" y="8" width="16" height="8" rx="2"/>
+                <circle cx="24" cy="34" r="1.5" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>Salas e Painéis</h3>
+            <p>Painéis de TV, estantes e rack planejados que combinam beleza e praticidade, criando o espaço perfeito para relaxar e receber visitas.</p>
+            <a href="#contato" class="card-link">Solicitar projeto <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="service-card reveal" tabindex="0">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="8" y="20" width="32" height="22" rx="2"/>
+                <rect x="14" y="12" width="20" height="8" rx="1"/>
+                <line x1="16" y1="30" x2="32" y2="30"/>
+                <line x1="16" y1="36" x2="32" y2="36"/>
+              </svg>
+            </div>
+            <h3>Escritórios Planejados</h3>
+            <p>Ambientes corporativos e home office organizados, ergonômicos e produtivos, com mesas, estações de trabalho e armários personalizados.</p>
+            <a href="#contato" class="card-link">Solicitar projeto <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="service-card reveal" tabindex="0">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="10" y="22" width="28" height="18" rx="2"/>
+                <path d="M10 26l14-14 14 14"/>
+                <rect x="19" y="30" width="10" height="10" rx="1"/>
+              </svg>
+            </div>
+            <h3>Áreas de Serviço</h3>
+            <p>Lavanderias e áreas de serviço planejadas com armários e espaços inteligentes que facilitam a rotina e mantêm o ambiente organizado.</p>
+            <a href="#contato" class="card-link">Solicitar projeto <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="service-card service-card--highlight reveal" tabindex="0">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="24" cy="24" r="16"/>
+                <path d="M24 16v8l5 5"/>
+                <path d="M16 8l-4-4M32 8l4-4M8 24H4M44 24h-4"/>
+              </svg>
+            </div>
+            <h3>Projeto Personalizado</h3>
+            <p>Não encontrou o que precisa? Desenvolvemos projetos totalmente personalizados para qualquer ambiente, do zero ao acabamento final.</p>
+            <a href="#contato" class="card-link">Falar com especialista <span aria-hidden="true">→</span></a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ABOUT SECTION
+    ============================================================ -->
+    <section class="about" id="sobre" aria-labelledby="about-title">
+      <div class="container about__inner">
+
+        <div class="about__visual reveal">
+          <div class="about__img-wrap">
+            <!-- Replace with actual team or workspace photo -->
+            <div class="about__img-placeholder" aria-label="Nossa marcenaria e equipe">
+              <svg viewBox="0 0 320 260" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustração da marcenaria Viana Móveis">
+                <!-- Workshop floor -->
+                <rect x="0" y="0" width="320" height="260" fill="#E8EFF9" rx="16"/>
+                <!-- Machine base -->
+                <rect x="60" y="140" width="200" height="80" rx="6" fill="#3D6BB5" opacity="0.2"/>
+                <rect x="80" y="120" width="160" height="40" rx="4" fill="#3D6BB5" opacity="0.35"/>
+                <!-- Table saw top -->
+                <rect x="70" y="110" width="180" height="15" rx="3" fill="#2A4E8A" opacity="0.5"/>
+                <!-- Blade slot -->
+                <rect x="148" y="105" width="24" height="8" rx="2" fill="#1A3366" opacity="0.6"/>
+                <!-- Fence/Guide -->
+                <rect x="200" y="100" width="8" height="30" rx="2" fill="#2A4E8A" opacity="0.7"/>
+                <!-- Motor box -->
+                <rect x="90" y="155" width="50" height="35" rx="4" fill="#3D6BB5" opacity="0.4"/>
+                <circle cx="115" cy="170" r="10" fill="#2A4E8A" opacity="0.5"/>
+                <circle cx="115" cy="170" r="5" fill="#1A3366" opacity="0.5"/>
+                <!-- Cabinet pieces -->
+                <rect x="20" y="30" width="60" height="80" rx="4" fill="#3D6BB5" opacity="0.25" stroke="#3D6BB5" stroke-width="1.5"/>
+                <rect x="240" y="40" width="60" height="70" rx="4" fill="#3D6BB5" opacity="0.25" stroke="#3D6BB5" stroke-width="1.5"/>
+                <!-- Decorative lines on panels -->
+                <line x1="35" y1="50" x2="65" y2="50" stroke="#3D6BB5" stroke-width="1.5" opacity="0.5"/>
+                <line x1="35" y1="60" x2="65" y2="60" stroke="#3D6BB5" stroke-width="1.5" opacity="0.5"/>
+                <line x1="35" y1="70" x2="65" y2="70" stroke="#3D6BB5" stroke-width="1.5" opacity="0.5"/>
+                <!-- Tool on wall -->
+                <rect x="130" y="20" width="60" height="10" rx="2" fill="#3D6BB5" opacity="0.3"/>
+                <rect x="155" y="10" width="10" height="15" rx="1" fill="#3D6BB5" opacity="0.4"/>
+                <!-- Stars/sparkles -->
+                <circle cx="280" cy="20" r="3" fill="#3D6BB5" opacity="0.3"/>
+                <circle cx="295" cy="35" r="2" fill="#3D6BB5" opacity="0.2"/>
+              </svg>
+            </div>
+            <div class="about__exp-badge" aria-label="15 anos de experiência">
+              <strong>15+</strong>
+              <span>anos de<br/>experiência</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about__content reveal reveal--right">
+          <span class="badge badge--dark">Sobre Nós</span>
+          <h2 id="about-title">Tradição e inovação a serviço do seu <span class="highlight">lar</span></h2>
+          <p>
+            A Viana Móveis Planejados nasceu da paixão pela marcenaria e do compromisso de transformar sonhos em realidade. Com mais de 15 anos de experiência no mercado, somos especialistas em criar ambientes que unem beleza, funcionalidade e durabilidade.
+          </p>
+          <p>
+            Cada projeto é tratado de forma única: ouvimos o cliente, entendemos seu estilo de vida e desenvolvemos soluções sob medida com materiais de primeira linha e acabamento impecável.
+          </p>
+          <ul class="about__list" aria-label="Nossos compromissos">
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Materiais certificados e de alta qualidade
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Equipe técnica especializada e treinada
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Prazo de entrega garantido em contrato
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Pós-venda e suporte completo
+            </li>
+          </ul>
+          <a href="#contato" class="btn btn--primary">Fale com um especialista</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         DIFFERENTIALS / BENEFITS
+    ============================================================ -->
+    <section class="differentials" id="diferenciais" aria-labelledby="diff-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="badge">Nossos Diferenciais</span>
+          <h2 id="diff-title">Por que escolher a <span class="highlight">Viana Móveis?</span></h2>
+          <p>Comprometidos com excelência em cada etapa do processo, do projeto à instalação.</p>
+        </div>
+
+        <div class="diff-grid">
+
+          <div class="diff-card reveal">
+            <div class="diff-card__num" aria-hidden="true">01</div>
+            <div class="diff-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M16 3L3 9v7c0 7.18 5.52 13.88 13 15.46C23.48 29.88 29 23.18 29 16V9L16 3z"/>
+                <polyline points="11,16 14,19 21,13"/>
+              </svg>
+            </div>
+            <h3>Garantia de 5 Anos</h3>
+            <p>Todos os nossos projetos têm garantia total de 5 anos. Trabalhamos com a certeza de que nossos móveis durarão muito mais.</p>
+          </div>
+
+          <div class="diff-card reveal">
+            <div class="diff-card__num" aria-hidden="true">02</div>
+            <div class="diff-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <circle cx="16" cy="16" r="13"/>
+                <polyline points="16,8 16,16 21,21"/>
+              </svg>
+            </div>
+            <h3>Prazo Garantido</h3>
+            <p>Cumprimos o prazo acordado em contrato. Respeitar o seu tempo é parte do nosso compromisso com a excelência no atendimento.</p>
+          </div>
+
+          <div class="diff-card reveal">
+            <div class="diff-card__num" aria-hidden="true">03</div>
+            <div class="diff-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <rect x="3" y="3" width="26" height="26" rx="3"/>
+                <path d="M3 12h26M12 3v26"/>
+              </svg>
+            </div>
+            <h3>Design Exclusivo</h3>
+            <p>Cada projeto é único. Nossos designers trabalham com você para criar ambientes que reflitam seu estilo e atendam suas necessidades.</p>
+          </div>
+
+          <div class="diff-card reveal">
+            <div class="diff-card__num" aria-hidden="true">04</div>
+            <div class="diff-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+                <circle cx="12" cy="11" r="4"/>
+                <path d="M28 21v-2a4 4 0 00-3-3.87M22 7.13a4 4 0 010 7.75"/>
+              </svg>
+            </div>
+            <h3>Atendimento Personalizado</h3>
+            <p>Um consultor dedicado acompanha seu projeto do início ao fim, garantindo comunicação clara e soluções sob medida para você.</p>
+          </div>
+
+          <div class="diff-card reveal">
+            <div class="diff-card__num" aria-hidden="true">05</div>
+            <div class="diff-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M12 22s-2-1-4-4a12 12 0 0116 0c-2 3-4 4-4 4"/>
+                <circle cx="16" cy="12" r="5"/>
+                <path d="M16 3v2M16 27v2M3 16H1M31 16h-2M5.64 5.64L7.05 7.05M24.95 24.95l1.41 1.41M5.64 26.36l1.41-1.41M24.95 7.05l1.41-1.41"/>
+              </svg>
+            </div>
+            <h3>Visita Técnica Gratuita</h3>
+            <p>Realizamos visita técnica sem custo para medir o espaço, entender suas necessidades e apresentar as melhores soluções para seu ambiente.</p>
+          </div>
+
+          <div class="diff-card reveal">
+            <div class="diff-card__num" aria-hidden="true">06</div>
+            <div class="diff-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M22 12h-4l-2 10-4-18-2 8H6"/>
+                <path d="M28 12a4 4 0 01-4 4"/>
+              </svg>
+            </div>
+            <h3>Materiais Premium</h3>
+            <p>Utilizamos apenas marcas consagradas do mercado — MDF de alta densidade, ferragens alemãs e acabamentos de nível superior.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TESTIMONIALS CAROUSEL
+    ============================================================ -->
+    <section class="testimonials" id="depoimentos" aria-labelledby="test-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="badge">Depoimentos</span>
+          <h2 id="test-title">O que nossos clientes <span class="highlight">dizem sobre nós</span></h2>
+          <p>Mais de 500 famílias já transformaram seus lares com a Viana Móveis Planejados.</p>
+        </div>
+
+        <!-- Carousel -->
+        <div class="carousel" role="region" aria-label="Depoimentos de clientes" aria-roledescription="carrossel">
+          <div class="carousel__track" id="carouselTrack">
+
+            <article class="testimonial-card" aria-label="Depoimento de Ana Paula">
+              <div class="testimonial-card__stars" aria-label="5 estrelas">
+                ★★★★★
+              </div>
+              <blockquote>
+                "A cozinha que a Viana Móveis fez para minha casa superou todas as expectativas. O acabamento é impecável, o prazo foi cumprido à risca e o atendimento foi excelente do início ao fim. Super recomendo!"
+              </blockquote>
+              <footer class="testimonial-card__author">
+                <div class="author-avatar" aria-hidden="true">AP</div>
+                <div>
+                  <cite>Ana Paula Mendes</cite>
+                  <span>Cozinha Planejada · São Paulo, SP</span>
+                </div>
+              </footer>
+            </article>
+
+            <article class="testimonial-card" aria-label="Depoimento de Ricardo Souza">
+              <div class="testimonial-card__stars" aria-label="5 estrelas">
+                ★★★★★
+              </div>
+              <blockquote>
+                "Fizemos o closet e o quarto completo. A qualidade é incrível! Os móveis são sólidos, bem acabados e o design ficou exatamente como queríamos. A equipe é muito profissional e educada."
+              </blockquote>
+              <footer class="testimonial-card__author">
+                <div class="author-avatar" aria-hidden="true">RS</div>
+                <div>
+                  <cite>Ricardo Souza</cite>
+                  <span>Closet & Quarto · Campinas, SP</span>
+                </div>
+              </footer>
+            </article>
+
+            <article class="testimonial-card" aria-label="Depoimento de Mariana Costa">
+              <div class="testimonial-card__stars" aria-label="5 estrelas">
+                ★★★★★
+              </div>
+              <blockquote>
+                "Meu escritório ficou um sonho! Antes era um espaço perdido e agora é o ambiente mais organizado e bonito da casa. O consultor entendeu tudo que eu precisava e entregou muito mais do que esperava."
+              </blockquote>
+              <footer class="testimonial-card__author">
+                <div class="author-avatar" aria-hidden="true">MC</div>
+                <div>
+                  <cite>Mariana Costa</cite>
+                  <span>Home Office · Santo André, SP</span>
+                </div>
+              </footer>
+            </article>
+
+            <article class="testimonial-card" aria-label="Depoimento de João Ferreira">
+              <div class="testimonial-card__stars" aria-label="5 estrelas">
+                ★★★★★
+              </div>
+              <blockquote>
+                "Contratei a Viana Móveis para mobiliar toda a minha casa nova. Resultado impecável! A qualidade é visível e os móveis são muito resistentes. Já indiquei para vários amigos e família."
+              </blockquote>
+              <footer class="testimonial-card__author">
+                <div class="author-avatar" aria-hidden="true">JF</div>
+                <div>
+                  <cite>João Ferreira</cite>
+                  <span>Projeto Completo · Guarulhos, SP</span>
+                </div>
+              </footer>
+            </article>
+
+            <article class="testimonial-card" aria-label="Depoimento de Camila Rodrigues">
+              <div class="testimonial-card__stars" aria-label="5 estrelas">
+                ★★★★★
+              </div>
+              <blockquote>
+                "A área de serviço que parecia um pesadelo virou um espaço lindo e funcional. Cada centímetro foi aproveitado. Fiquei impressionada com a dedicação da equipe e com o nível de detalhe no acabamento."
+              </blockquote>
+              <footer class="testimonial-card__author">
+                <div class="author-avatar" aria-hidden="true">CR</div>
+                <div>
+                  <cite>Camila Rodrigues</cite>
+                  <span>Área de Serviço · São Bernardo, SP</span>
+                </div>
+              </footer>
+            </article>
+
+          </div>
+
+          <!-- Carousel Controls -->
+          <div class="carousel__controls">
+            <button class="carousel__btn carousel__btn--prev" id="carouselPrev" aria-label="Depoimento anterior">
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="carousel__dots" id="carouselDots" role="tablist" aria-label="Selecionar depoimento"></div>
+            <button class="carousel__btn carousel__btn--next" id="carouselNext" aria-label="Próximo depoimento">
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CTA SECTION
+    ============================================================ -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="cta-section__bg" aria-hidden="true"></div>
+      <div class="container cta-section__inner reveal">
+        <div class="cta-section__content">
+          <span class="badge">Comece Agora</span>
+          <h2 id="cta-title">Pronto para transformar <span class="highlight-light">seu espaço?</span></h2>
+          <p>Solicite um orçamento gratuito e sem compromisso. Nossa equipe entra em contato em até 24 horas para agendar uma visita técnica.</p>
+          <div class="cta-section__actions">
+            <a href="#contato" class="btn btn--white btn--lg">
+              Quero meu orçamento grátis
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </a>
+            <a href="https://wa.me/5511999999999" class="btn btn--whatsapp" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.471 2.027 7.773L0 32l8.418-2.006A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.28 21.413c-.4-.2-2.36-1.16-2.72-1.293-.36-.133-.623-.2-.887.2s-1.02 1.293-1.247 1.56c-.227.267-.453.3-.853.1-.4-.2-1.687-.62-3.213-1.98-1.187-1.06-1.987-2.367-2.22-2.767-.233-.4-.024-.613.176-.813.18-.18.4-.467.6-.7.2-.233.267-.4.4-.667.133-.267.067-.5-.033-.7-.1-.2-.887-2.147-1.213-2.94-.32-.773-.647-.667-.887-.68h-.753c-.267 0-.7.1-1.067.5s-1.4 1.367-1.4 3.333 1.433 3.867 1.633 4.133c.2.267 2.82 4.307 6.833 6.04.953.413 1.7.66 2.28.847.957.307 1.827.263 2.517.16.767-.113 2.36-.967 2.693-1.9.333-.933.333-1.733.233-1.9-.1-.167-.36-.267-.76-.467z"/></svg>
+              Falar pelo WhatsApp
+            </a>
+          </div>
+        </div>
+        <div class="cta-section__visual" aria-hidden="true">
+          <div class="cta-stat">
+            <strong>+500</strong>
+            <span>Projetos realizados</span>
+          </div>
+          <div class="cta-stat">
+            <strong>15+</strong>
+            <span>Anos no mercado</span>
+          </div>
+          <div class="cta-stat">
+            <strong>5 anos</strong>
+            <span>De garantia</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT SECTION
+    ============================================================ -->
+    <section class="contact" id="contato" aria-labelledby="contact-title">
+      <div class="container contact__inner">
+
+        <div class="contact__info reveal">
+          <span class="badge badge--dark">Contato</span>
+          <h2 id="contact-title">Vamos conversar sobre <span class="highlight">seu projeto</span></h2>
+          <p>Preencha o formulário ou entre em contato diretamente. Nossa equipe responde rapidamente!</p>
+
+          <div class="contact__channels">
+            <a href="https://wa.me/5511999999999" class="contact-channel" target="_blank" rel="noopener noreferrer">
+              <div class="contact-channel__icon contact-channel__icon--green" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.471 2.027 7.773L0 32l8.418-2.006A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.28 21.413c-.4-.2-2.36-1.16-2.72-1.293-.36-.133-.623-.2-.887.2s-1.02 1.293-1.247 1.56c-.227.267-.453.3-.853.1-.4-.2-1.687-.62-3.213-1.98-1.187-1.06-1.987-2.367-2.22-2.767-.233-.4-.024-.613.176-.813.18-.18.4-.467.6-.7.2-.233.267-.4.4-.667.133-.267.067-.5-.033-.7-.1-.2-.887-2.147-1.213-2.94-.32-.773-.647-.667-.887-.68h-.753c-.267 0-.7.1-1.067.5s-1.4 1.367-1.4 3.333 1.433 3.867 1.633 4.133c.2.267 2.82 4.307 6.833 6.04.953.413 1.7.66 2.28.847.957.307 1.827.263 2.517.16.767-.113 2.36-.967 2.693-1.9.333-.933.333-1.733.233-1.9-.1-.167-.36-.267-.76-.467z"/></svg>
+              </div>
+              <div>
+                <strong>WhatsApp</strong>
+                <span>(11) 99999-9999</span>
+              </div>
+            </a>
+
+            <a href="mailto:contato@vianamoveisplanejados.com.br" class="contact-channel">
+              <div class="contact-channel__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <strong>E-mail</strong>
+                <span>contato@vianamoveisplanejados.com.br</span>
+              </div>
+            </a>
+
+            <div class="contact-channel">
+              <div class="contact-channel__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <strong>Endereço</strong>
+                <span>Rua das Marcenarias, 123 – São Paulo, SP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact__form-wrap reveal reveal--right">
+          <form class="contact-form" id="contactForm" novalidate aria-label="Formulário de contato">
+            <h3>Solicite seu orçamento grátis</h3>
+            <p class="form-sub">Responderemos em até 24 horas úteis.</p>
+
+            <div class="form-group">
+              <label for="name">Nome completo <span aria-hidden="true">*</span></label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Seu nome"
+                required
+                autocomplete="name"
+                aria-required="true"
+              />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">E-mail <span aria-hidden="true">*</span></label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="seu@email.com"
+                  required
+                  autocomplete="email"
+                  aria-required="true"
+                />
+              </div>
+              <div class="form-group">
+                <label for="phone">Telefone / WhatsApp</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="(11) 99999-9999"
+                  autocomplete="tel"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="service">Tipo de projeto</label>
+              <select id="service" name="service">
+                <option value="">Selecione um serviço...</option>
+                <option value="cozinha">Cozinha Planejada</option>
+                <option value="quarto">Quarto / Guarda-roupa</option>
+                <option value="closet">Closet</option>
+                <option value="sala">Sala / Painel TV</option>
+                <option value="escritorio">Escritório / Home Office</option>
+                <option value="area-servico">Área de Serviço</option>
+                <option value="completo">Projeto Completo</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Conte-nos sobre seu projeto</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                placeholder="Descreva seu projeto, ambiente, necessidades e expectativas..."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--full">
+              Enviar mensagem
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/></svg>
+            </button>
+
+            <p class="form-note">
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+              Seus dados estão seguros. Nunca compartilhamos suas informações.
+            </p>
+
+            <!-- Success message (hidden by default) -->
+            <div class="form-success" id="formSuccess" role="alert" aria-live="polite" hidden>
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <strong>Mensagem enviada com sucesso!</strong>
+              <span>Entraremos em contato em breve.</span>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+
+      <div class="footer__brand">
+        <a href="#hero" class="footer__logo" aria-label="Viana Móveis Planejados">
+          <svg class="logo-icon" viewBox="0 0 48 36" fill="none" aria-hidden="true">
+            <rect x="4" y="18" width="40" height="14" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+            <rect x="10" y="8" width="28" height="12" rx="1.5" stroke="currentColor" stroke-width="1.8" fill="none"/>
+            <circle cx="24" cy="22" r="3.5" stroke="currentColor" stroke-width="1.8" fill="none"/>
+            <line x1="4" y1="22" x2="0" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="48" y1="22" x2="44" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span class="logo-text">
+            <span class="logo-brand">Viana</span>
+            <span class="logo-sub">Móveis Planejados</span>
+          </span>
+        </a>
+        <p>Transformando espaços com móveis sob medida de qualidade premium há mais de 15 anos.</p>
+        <div class="footer__social" aria-label="Redes sociais">
+          <a href="https://instagram.com/vianamoveisplanejados" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://facebook.com/vianamoveisplanejados" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.471 2.027 7.773L0 32l8.418-2.006A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.28 21.413c-.4-.2-2.36-1.16-2.72-1.293-.36-.133-.623-.2-.887.2s-1.02 1.293-1.247 1.56c-.227.267-.453.3-.853.1-.4-.2-1.687-.62-3.213-1.98-1.187-1.06-1.987-2.367-2.22-2.767-.233-.4-.024-.613.176-.813.18-.18.4-.467.6-.7.2-.233.267-.4.4-.667.133-.267.067-.5-.033-.7-.1-.2-.887-2.147-1.213-2.94-.32-.773-.647-.667-.887-.68h-.753c-.267 0-.7.1-1.067.5s-1.4 1.367-1.4 3.333 1.433 3.867 1.633 4.133c.2.267 2.82 4.307 6.833 6.04.953.413 1.7.66 2.28.847.957.307 1.827.263 2.517.16.767-.113 2.36-.967 2.693-1.9.333-.933.333-1.733.233-1.9-.1-.167-.36-.267-.76-.467z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__links">
+        <div class="footer__col">
+          <h4>Serviços</h4>
+          <ul>
+            <li><a href="#servicos">Cozinhas Planejadas</a></li>
+            <li><a href="#servicos">Quartos e Closets</a></li>
+            <li><a href="#servicos">Salas e Painéis</a></li>
+            <li><a href="#servicos">Escritórios</a></li>
+            <li><a href="#servicos">Áreas de Serviço</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="#sobre">Sobre Nós</a></li>
+            <li><a href="#diferenciais">Diferenciais</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contato</h4>
+          <ul>
+            <li><a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer">(11) 99999-9999</a></li>
+            <li><a href="mailto:contato@vianamoveisplanejados.com.br">contato@vianamoveisplanejados.com.br</a></li>
+            <li>Seg–Sex: 8h às 18h</li>
+            <li>Sáb: 8h às 13h</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container">
+        <p>&copy; <span id="currentYear"></span> Viana Móveis Planejados. Todos os direitos reservados.</p>
+        <p>Desenvolvido com ♥ para transformar seu lar</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
