@@ -274,24 +274,42 @@ const qsa = (sel, root = document) => [...root.querySelectorAll(sel)];
 })();
 
 /* ----------------------------------------------------------------
-   7. PHOTO SHOWCASE CAROUSEL
+   7. PHOTO SHOWCASE CAROUSEL — fade + zoom-in lightbox
 ---------------------------------------------------------------- */
 (function initPhotoShowcaseCarousel() {
-  const track = qs('#photoCarouselTrack');
-  const btnPrev = qs('#photoCarouselPrev');
-  const btnNext = qs('#photoCarouselNext');
+  const track    = qs('#photoCarouselTrack');
+  const btnPrev  = qs('#photoCarouselPrev');
+  const btnNext  = qs('#photoCarouselNext');
   const dotsWrap = qs('#photoCarouselDots');
+  const lb       = qs('#photoLightbox');
+  const lbImg    = qs('#photoLbImg');
+  const lbCap    = qs('#photoLbCaption');
+  const lbClose  = qs('#photoLbClose');
 
   if (!track || !btnPrev || !btnNext || !dotsWrap) return;
 
-  const slides = qsa('.photo-slide', track);
+  const slides  = qsa('.photo-slide', track);
   if (!slides.length) return;
 
-  let current = 0;
+  let current   = 0;
   let autoTimer = null;
-  let startX = 0;
-  let isDragging = false;
+  const AUTO_MS = 4500;
 
+  // ── Progress bar ──────────────────────────────────────────────
+  const progressBar = document.createElement('div');
+  progressBar.className = 'photo-carousel__progress';
+  track.appendChild(progressBar);
+
+  const resetProgress = () => {
+    progressBar.style.transition = 'none';
+    progressBar.style.width = '0%';
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      progressBar.style.transition = `width ${AUTO_MS}ms linear`;
+      progressBar.style.width = '100%';
+    }));
+  };
+
+  // ── Dots ──────────────────────────────────────────────────────
   const renderDots = () => {
     dotsWrap.innerHTML = '';
     slides.forEach((_, i) => {
@@ -299,87 +317,85 @@ const qsa = (sel, root = document) => [...root.querySelectorAll(sel)];
       dot.className = `carousel__dot${i === current ? ' active' : ''}`;
       dot.type = 'button';
       dot.setAttribute('aria-label', `Ir para a foto ${i + 1}`);
-      dot.addEventListener('click', () => {
-        goTo(i);
-        resetAuto();
-      });
+      dot.addEventListener('click', () => { goTo(i); resetAuto(); });
       dotsWrap.appendChild(dot);
     });
   };
 
+  // ── Go to slide (fade) ────────────────────────────────────────
   const goTo = (idx) => {
-    current = Math.max(0, Math.min(idx, slides.length - 1));
-    track.style.transform = `translateX(-${current * 100}%)`;
+    slides[current].classList.remove('active');
+    current = ((idx % slides.length) + slides.length) % slides.length;
+    slides[current].classList.add('active');
 
     qsa('.carousel__dot', dotsWrap).forEach((dot, i) => {
       dot.classList.toggle('active', i === current);
       dot.setAttribute('aria-selected', i === current ? 'true' : 'false');
     });
 
-    btnPrev.disabled = current === 0;
-    btnNext.disabled = current === slides.length - 1;
+    resetProgress();
   };
 
-  btnPrev.addEventListener('click', () => {
-    goTo(current - 1);
-    resetAuto();
-  });
-
-  btnNext.addEventListener('click', () => {
-    goTo(current + 1);
-    resetAuto();
-  });
-
+  // ── Autoplay ──────────────────────────────────────────────────
   const startAuto = () => {
-    autoTimer = setInterval(() => {
-      goTo(current >= slides.length - 1 ? 0 : current + 1);
-    }, 4500);
-  };
-
-  const resetAuto = () => {
     clearInterval(autoTimer);
-    startAuto();
+    autoTimer = setInterval(() => goTo(current + 1), AUTO_MS);
   };
 
-  track.addEventListener('touchstart', (e) => {
-    startX = e.touches[0].clientX;
-    isDragging = true;
-  }, { passive: true });
+  const resetAuto = () => { startAuto(); resetProgress(); };
 
-  track.addEventListener('touchend', (e) => {
-    if (!isDragging) return;
-    const diff = startX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 40) {
-      diff > 0 ? goTo(current + 1) : goTo(current - 1);
-      resetAuto();
-    }
-    isDragging = false;
-  });
+  btnPrev.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+  btnNext.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
 
-  track.addEventListener('mousedown', (e) => {
-    startX = e.clientX;
-    isDragging = true;
-    e.preventDefault();
-  });
-
-  document.addEventListener('mouseup', (e) => {
-    if (!isDragging) return;
-    const diff = startX - e.clientX;
-    if (Math.abs(diff) > 60) {
-      diff > 0 ? goTo(current + 1) : goTo(current - 1);
-      resetAuto();
-    }
-    isDragging = false;
-  });
-
+  // ── Pause on hover ────────────────────────────────────────────
   const carousel = track.closest('.photo-carousel');
   if (carousel) {
-    carousel.addEventListener('mouseenter', () => clearInterval(autoTimer));
-    carousel.addEventListener('mouseleave', startAuto);
+    carousel.addEventListener('mouseenter', () => {
+      clearInterval(autoTimer);
+      progressBar.style.transition = 'none';
+    });
+    carousel.addEventListener('mouseleave', resetAuto);
   }
 
+  // ── Touch / swipe ─────────────────────────────────────────────
+  let startX = 0;
+  track.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend',   (e) => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) { diff > 0 ? goTo(current + 1) : goTo(current - 1); resetAuto(); }
+  });
+
+  // ── Lightbox (click to zoom) ──────────────────────────────────
+  if (lb && lbImg) {
+    slides.forEach(slide => {
+      slide.addEventListener('click', () => {
+        const img = slide.querySelector('img');
+        const cap = slide.querySelector('figcaption');
+        if (!img) return;
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        if (lbCap) lbCap.textContent = cap ? cap.textContent : '';
+        document.body.style.overflow = 'hidden';
+        lb.classList.add('open');
+      });
+    });
+
+    const closeLb = () => {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
+    if (lbClose) lbClose.addEventListener('click', closeLb);
+    lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !lb.hidden) closeLb();
+    });
+  }
+
+  // ── Init ──────────────────────────────────────────────────────
   renderDots();
-  goTo(0);
+  slides[0].classList.add('active');
+  resetProgress();
   startAuto();
 })();
 

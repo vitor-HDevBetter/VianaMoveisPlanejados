@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carrosel Moderno</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --clr-bg: #0f0f13;
+      --clr-surface: #1a1a22;
+      --clr-text: #f0f0f5;
+      --clr-muted: #888;
+      --clr-accent: #e8c97e;
+      --radius: 14px;
+      --shadow: 0 24px 60px rgba(0,0,0,.55);
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--clr-bg);
+      color: var(--clr-text);
+      font-family: 'Georgia', serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 16px 60px;
+      overflow-x: hidden;
+    }
+
+    /* ── header ── */
+    header {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+    header h1 {
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      letter-spacing: .03em;
+      font-weight: 400;
+      color: var(--clr-accent);
+    }
+    header p {
+      margin-top: 8px;
+      color: var(--clr-muted);
+      font-size: .92rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    /* ── wrapper ── */
+    .carousel-wrapper {
+      width: 100%;
+      max-width: 860px;
+      position: relative;
+    }
+
+    /* ── track + slides ── */
+    .carousel-track {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: var(--clr-surface);
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: scale(1.04) translateX(30px);
+      transition:
+        opacity .55s cubic-bezier(.4,0,.2,1),
+        transform .55s cubic-bezier(.4,0,.2,1);
+      pointer-events: none;
+      cursor: zoom-in;
+    }
+    .slide.active {
+      opacity: 1;
+      transform: scale(1) translateX(0);
+      pointer-events: auto;
+    }
+    .slide.exit-left {
+      opacity: 0;
+      transform: scale(.96) translateX(-40px);
+    }
+    .slide.exit-right {
+      opacity: 0;
+      transform: scale(.96) translateX(40px);
+    }
+
+    /* gradient "images" */
+    .slide-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .slide-inner .bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform .45s ease;
+    }
+    .slide:hover .bg { transform: scale(1.03); }
+
+    .slide-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 28px 28px 22px;
+      background: linear-gradient(to top, rgba(0,0,0,.75) 0%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .slide-caption .tag {
+      font-size: .72rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--clr-accent);
+    }
+    .slide-caption h2 {
+      font-size: clamp(1rem, 3vw, 1.5rem);
+      font-weight: 400;
+    }
+    .slide-caption p {
+      font-size: .82rem;
+      color: rgba(255,255,255,.65);
+      font-family: sans-serif;
+    }
+
+    /* ── arrows ── */
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+      color: #fff;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+      backdrop-filter: blur(6px);
+    }
+    .arrow:hover {
+      background: rgba(232,201,126,.22);
+      border-color: var(--clr-accent);
+      transform: translateY(-50%) scale(1.1);
+    }
+    .arrow svg { width: 20px; height: 20px; }
+    .arrow-prev { left: -22px; }
+    .arrow-next { right: -22px; }
+
+    /* ── dots ── */
+    .dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 22px;
+    }
+    .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.2);
+      cursor: pointer;
+      transition: background .25s, transform .25s;
+    }
+    .dot.active {
+      background: var(--clr-accent);
+      transform: scale(1.35);
+    }
+
+    /* ── thumbnails ── */
+    .thumbs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .thumb {
+      width: 72px; height: 45px;
+      border-radius: 7px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color .2s, transform .2s, opacity .2s;
+      opacity: .55;
+    }
+    .thumb.active { border-color: var(--clr-accent); opacity: 1; transform: scale(1.05); }
+    .thumb:hover:not(.active) { opacity: .8; transform: scale(1.03); }
+    .thumb .bg { width: 100%; height: 100%; background-size: cover; background-position: center; }
+
+    /* ── lightbox ── */
+    #lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,.0);
+      backdrop-filter: blur(0px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .35s ease, backdrop-filter .35s ease, background .35s ease;
+    }
+    #lightbox.open {
+      opacity: 1;
+      pointer-events: auto;
+      background: rgba(0,0,0,.82);
+      backdrop-filter: blur(14px);
+    }
+    .lb-img {
+      width: min(88vw, 900px);
+      aspect-ratio: 16/9;
+      border-radius: var(--radius);
+      overflow: hidden;
+      transform: scale(.82);
+      transition: transform .4s cubic-bezier(.34,1.56,.64,1);
+      box-shadow: 0 40px 100px rgba(0,0,0,.7);
+      position: relative;
+    }
+    #lightbox.open .lb-img { transform: scale(1); }
+    .lb-img .bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+    .lb-close {
+      position: fixed;
+      top: 24px; right: 28px;
+      font-size: 2rem;
+      cursor: pointer;
+      color: rgba(255,255,255,.7);
+      transition: color .2s, transform .2s;
+      z-index: 1001;
+      line-height: 1;
+      background: none; border: none;
+    }
+    .lb-close:hover { color: #fff; transform: rotate(90deg) scale(1.1); }
+    .lb-caption {
+      position: fixed;
+      bottom: 36px;
+      left: 50%; transform: translateX(-50%);
+      text-align: center;
+      color: rgba(255,255,255,.8);
+    }
+    .lb-caption strong {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--clr-accent);
+    }
+    .lb-caption span { font-size: .82rem; font-family: sans-serif; color: rgba(255,255,255,.5); }
+
+    /* ── progress bar ── */
+    .progress-bar {
+      position: absolute;
+      bottom: 0; left: 0;
+      height: 3px;
+      background: var(--clr-accent);
+      width: 0%;
+      transition: width linear;
+      border-radius: 0 3px 3px 0;
+    }
+
+    @media (max-width: 600px) {
+      .arrow-prev { left: 6px; }
+      .arrow-next { right: 6px; }
+      .thumb { width: 54px; height: 34px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <p>Coleção em Destaque</p>
+  <h1>Móveis Planejados Viana</h1>
+</header>
+
+<div class="carousel-wrapper">
+
+  <!-- slides -->
+  <div class="carousel-track" id="track">
+    <!-- slides inserted by JS -->
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- arrows -->
+  <button class="arrow arrow-prev" id="prev" aria-label="Anterior">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6"/>
+    </svg>
+  </button>
+  <button class="arrow arrow-next" id="next" aria-label="Próximo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="9 18 15 12 9 6"/>
+    </svg>
+  </button>
+
+  <!-- dots -->
+  <div class="dots" id="dots"></div>
+
+  <!-- thumbnails -->
+  <div class="thumbs" id="thumbs"></div>
+</div>
+
+<!-- lightbox -->
+<div id="lightbox">
+  <button class="lb-close" id="lbClose" aria-label="Fechar">&#x2715;</button>
+  <div class="lb-img" id="lbImg"><div class="bg" id="lbBg"></div></div>
+  <div class="lb-caption" id="lbCaption">
+    <strong id="lbTitle"></strong>
+    <span id="lbDesc"></span>
+  </div>
+</div>
+
+<script>
+  const slides = [
+    {
+      bg: 'linear-gradient(135deg,#2d1b69 0%,#11998e 100%)',
+      tag: 'Cozinha',
+      title: 'Cozinha Contemporânea',
+      desc: 'Armários de MDF com acabamento lacado brilhante'
+    },
+    {
+      bg: 'linear-gradient(135deg,#3a1c71 0%,#d76d77 60%,#ffaf7b 100%)',
+      tag: 'Sala',
+      title: 'Sala de Estar Completa',
+      desc: 'Painel ripado com iluminação LED integrada'
+    },
+    {
+      bg: 'linear-gradient(135deg,#0f2027 0%,#203a43 50%,#2c5364 100%)',
+      tag: 'Quarto',
+      title: 'Dormitório Master',
+      desc: 'Closet planejado com espelhos e gavetas deslizantes'
+    },
+    {
+      bg: 'linear-gradient(135deg,#1a472a 0%,#2d6a4f 40%,#74c69d 100%)',
+      tag: 'Home Office',
+      title: 'Home Office Moderno',
+      desc: 'Mesa em L com nichos e organização inteligente'
+    },
+    {
+      bg: 'linear-gradient(135deg,#4a0e0e 0%,#b5451b 50%,#e8872a 100%)',
+      tag: 'Banheiro',
+      title: 'Banheiro Planejado',
+      desc: 'Gabinete suspenso com cuba esculpida e espelho iluminado'
+    },
+    {
+      bg: 'linear-gradient(135deg,#0d0d2b 0%,#1a1a5e 40%,#4040a0 100%)',
+      tag: 'Varanda',
+      title: 'Varanda Gourmet',
+      desc: 'Área externa com bancada e adega climatizada'
+    },
+  ];
+
+  const AUTO_INTERVAL = 4500;
+  let current = 0;
+  let autoTimer = null;
+  let progTimer = null;
+
+  const track      = document.getElementById('track');
+  const dotsEl     = document.getElementById('dots');
+  const thumbsEl   = document.getElementById('thumbs');
+  const progressBar= document.getElementById('progressBar');
+  const lightbox   = document.getElementById('lightbox');
+  const lbBg       = document.getElementById('lbBg');
+  const lbTitle    = document.getElementById('lbTitle');
+  const lbDesc     = document.getElementById('lbDesc');
+
+  // build slides
+  slides.forEach((s, i) => {
+    const el = document.createElement('div');
+    el.className = 'slide' + (i === 0 ? ' active' : '');
+    el.dataset.index = i;
+    el.innerHTML = `
+      <div class="slide-inner">
+        <div class="bg" style="background:${s.bg}"></div>
+        <div class="slide-caption">
+          <span class="tag">${s.tag}</span>
+          <h2>${s.title}</h2>
+          <p>${s.desc}</p>
+        </div>
+      </div>`;
+    el.addEventListener('click', () => openLightbox(i));
+    track.insertBefore(el, progressBar);
+
+    // dot
+    const dot = document.createElement('button');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', `Slide ${i+1}`);
+    dot.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(dot);
+
+    // thumb
+    const th = document.createElement('div');
+    th.className = 'thumb' + (i === 0 ? ' active' : '');
+    th.innerHTML = `<div class="bg" style="background:${s.bg}"></div>`;
+    th.addEventListener('click', () => goTo(i));
+    thumbsEl.appendChild(th);
+  });
+
+  function goTo(next, dir = 'right') {
+    if (next === current) return;
+    const slideEls = track.querySelectorAll('.slide');
+    const dotEls   = dotsEl.querySelectorAll('.dot');
+    const thumbEls = thumbsEl.querySelectorAll('.thumb');
+
+    // exit current
+    slideEls[current].classList.remove('active');
+    slideEls[current].classList.add(next > current ? 'exit-left' : 'exit-right');
+    setTimeout(() => slideEls[current < slides.length ? current : 0]?.classList.remove('exit-left','exit-right'), 600);
+
+    current = next;
+    slideEls[current].classList.add('active');
+
+    dotEls.forEach((d,i) => d.classList.toggle('active', i === current));
+    thumbEls.forEach((t,i) => t.classList.toggle('active', i === current));
+
+    resetProgress();
+  }
+
+  document.getElementById('prev').addEventListener('click', () => {
+    goTo((current - 1 + slides.length) % slides.length, 'left');
+    resetAuto();
+  });
+  document.getElementById('next').addEventListener('click', () => {
+    goTo((current + 1) % slides.length);
+    resetAuto();
+  });
+
+  // keyboard
+  document.addEventListener('keydown', e => {
+    if (lightbox.classList.contains('open')) {
+      if (e.key === 'Escape') closeLightbox();
+    } else {
+      if (e.key === 'ArrowLeft')  { goTo((current-1+slides.length)%slides.length,'left'); resetAuto(); }
+      if (e.key === 'ArrowRight') { goTo((current+1)%slides.length); resetAuto(); }
+    }
+  });
+
+  // progress bar
+  function resetProgress() {
+    clearTimeout(progTimer);
+    progressBar.style.transition = 'none';
+    progressBar.style.width = '0%';
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      progressBar.style.transition = `width ${AUTO_INTERVAL}ms linear`;
+      progressBar.style.width = '100%';
+    }));
+  }
+
+  // autoplay
+  function startAuto() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(() => goTo((current+1)%slides.length), AUTO_INTERVAL);
+  }
+  function resetAuto() {
+    startAuto();
+    resetProgress();
+  }
+
+  resetProgress();
+  startAuto();
+
+  // pause on hover
+  const wrapper = document.querySelector('.carousel-wrapper');
+  wrapper.addEventListener('mouseenter', () => { clearInterval(autoTimer); clearTimeout(progTimer); progressBar.style.transition='none'; });
+  wrapper.addEventListener('mouseleave', resetAuto);
+
+  // lightbox
+  function openLightbox(i) {
+    const s = slides[i];
+    lbBg.style.background = s.bg;
+    lbTitle.textContent   = s.title;
+    lbDesc.textContent    = s.desc;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('lbClose').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+
+  // swipe support
+  let touchStartX = 0;
+  track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend',   e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 40) { dx < 0 ? goTo((current+1)%slides.length) : goTo((current-1+slides.length)%slides.length,'left'); resetAuto(); }
+  });
+</script>
+</body>
+</html>

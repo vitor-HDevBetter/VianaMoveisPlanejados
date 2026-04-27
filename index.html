@@ -204,6 +204,58 @@
     </section>
 
     <!-- ============================================================
+         GALERIA / CARROSSEL DE FOTOS
+    ============================================================ -->
+    <section class="photo-showcase" id="galeria" aria-labelledby="photo-showcase-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="badge badge--dark">Projetos Reais</span>
+          <h2 id="photo-showcase-title">Inspire-se com nossos <span class="highlight">ambientes planejados</span></h2>
+          <p>Um carrossel moderno com alguns dos estilos que desenvolvemos para cozinha, closet, quarto e home office.</p>
+        </div>
+
+        <div class="photo-carousel reveal" role="region" aria-label="Galeria de fotos de projetos" aria-roledescription="carrossel">
+          <div class="photo-carousel__track" id="photoCarouselTrack">
+            <figure class="photo-slide">
+              <img src="1.jpeg" alt="Cozinha planejada com acabamento em madeira clara e iluminação embutida." loading="lazy" />
+              <figcaption>Cozinha planejada contemporânea</figcaption>
+            </figure>
+            <figure class="photo-slide">
+              <img src="2.jpeg" alt="Quarto com guarda-roupa sob medida em tons neutros e detalhes em vidro." loading="lazy" />
+              <figcaption>Quarto com guarda-roupa sob medida</figcaption>
+            </figure>
+            <figure class="photo-slide">
+              <img src="3.jpeg" alt="Home office planejado com bancada ampla e prateleiras funcionais." loading="lazy" />
+              <figcaption>Home office elegante e funcional</figcaption>
+            </figure>
+            <figure class="photo-slide">
+              <img src="4.jpeg" alt="Closet planejado com nichos iluminados e portas de correr." loading="lazy" />
+              <figcaption>Closet com organização inteligente</figcaption>
+            </figure>
+            <figure class="photo-slide">
+              <img src="5.jpeg" alt="Sala de jantar planejada com buffet e painel de iluminação." loading="lazy" />
+              <figcaption>Sala de jantar com buffet planejado</figcaption>
+            </figure>
+            <figure class="photo-slide">
+              <img src="6.jpeg" alt="Banheiro com gabinete planejado, espelho iluminado e bancada de mármore." loading="lazy" />
+              <figcaption>Banheiro com gabinete planejado</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="photo-carousel__controls" aria-label="Controles da galeria de fotos">
+          <button class="carousel__btn" id="photoCarouselPrev" aria-label="Foto anterior">
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.707 4.293a1 1 0 010 1.414L8.414 10l4.293 4.293a1 1 0 01-1.414 1.414l-5-5a1 1 0 010-1.414l5-5a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          </button>
+          <div class="carousel__dots" id="photoCarouselDots" role="tablist" aria-label="Selecionar foto da galeria"></div>
+          <button class="carousel__btn" id="photoCarouselNext" aria-label="Próxima foto">
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M7.293 15.707a1 1 0 010-1.414L11.586 10 7.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
          SOCIAL PROOF / LOGOS
     ============================================================ -->
     <section class="logos-bar" aria-label="Marcas e parceiros">
@@ -227,53 +279,6 @@
             <span class="logo-pill">Grass</span>
             <span class="logo-pill">Mdf Brasil</span>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         GALERIA / CARROSSEL DE FOTOS
-    ============================================================ -->
-    <section class="photo-showcase" id="galeria" aria-labelledby="photo-showcase-title">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="badge badge--dark">Projetos Reais</span>
-          <h2 id="photo-showcase-title">Inspire-se com nossos <span class="highlight">ambientes planejados</span></h2>
-          <p>Um carrossel moderno com alguns dos estilos que desenvolvemos para cozinha, closet, quarto e home office.</p>
-        </div>
-
-        <div class="photo-carousel reveal" role="region" aria-label="Galeria de fotos de projetos" aria-roledescription="carrossel">
-          <div class="photo-carousel__track" id="photoCarouselTrack">
-            <figure class="photo-slide">
-              <img src="1.jpeg" alt="Cozinha planejada com acabamento em madeira clara e iluminação embutida." loading="lazy" />
-              <figcaption>Cozinha planejada contemporânea</figcaption>
-            </figure>
-
-            <figure class="photo-slide">
-              <img src="2.jpeg" alt="Quarto com guarda-roupa sob medida em tons neutros e detalhes em vidro." loading="lazy" />
-              <figcaption>Quarto com guarda-roupa sob medida</figcaption>
-            </figure>
-
-            <figure class="photo-slide">
-              <img src="3.jpeg" alt="Home office planejado com bancada ampla e prateleiras funcionais." loading="lazy" />
-              <figcaption>Home office elegante e funcional</figcaption>
-            </figure>
-
-            <figure class="photo-slide">
-              <img src="4.jpeg" alt="Closet planejado com nichos iluminados e portas de correr." loading="lazy" />
-              <figcaption>Closet com organização inteligente</figcaption>
-            </figure>
-          </div>
-        </div>
-
-        <div class="photo-carousel__controls" aria-label="Controles da galeria de fotos">
-          <button class="carousel__btn" id="photoCarouselPrev" aria-label="Foto anterior">
-            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.707 4.293a1 1 0 010 1.414L8.414 10l4.293 4.293a1 1 0 01-1.414 1.414l-5-5a1 1 0 010-1.414l5-5a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-          </button>
-          <div class="carousel__dots" id="photoCarouselDots" role="tablist" aria-label="Selecionar foto da galeria"></div>
-          <button class="carousel__btn" id="photoCarouselNext" aria-label="Próxima foto">
-            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M7.293 15.707a1 1 0 010-1.414L11.586 10 7.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
-          </button>
         </div>
       </div>
     </section>
@@ -910,6 +915,19 @@
       </div>
     </div>
   </footer>
+
+  <!-- Photo Lightbox -->
+  <div class="photo-lb" id="photoLightbox" role="dialog" aria-modal="true" aria-label="Visualização ampliada">
+    <button class="photo-lb__close" id="photoLbClose" aria-label="Fechar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+    <div class="photo-lb__img-wrap">
+      <img id="photoLbImg" src="" alt="" />
+    </div>
+    <p class="photo-lb__caption" id="photoLbCaption"></p>
+  </div>
 
   <script src="script.js"></script>
 </body>
