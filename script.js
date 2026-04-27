@@ -274,7 +274,117 @@ const qsa = (sel, root = document) => [...root.querySelectorAll(sel)];
 })();
 
 /* ----------------------------------------------------------------
-   7. CONTACT FORM — validation + submit feedback
+   7. PHOTO SHOWCASE CAROUSEL
+---------------------------------------------------------------- */
+(function initPhotoShowcaseCarousel() {
+  const track = qs('#photoCarouselTrack');
+  const btnPrev = qs('#photoCarouselPrev');
+  const btnNext = qs('#photoCarouselNext');
+  const dotsWrap = qs('#photoCarouselDots');
+
+  if (!track || !btnPrev || !btnNext || !dotsWrap) return;
+
+  const slides = qsa('.photo-slide', track);
+  if (!slides.length) return;
+
+  let current = 0;
+  let autoTimer = null;
+  let startX = 0;
+  let isDragging = false;
+
+  const renderDots = () => {
+    dotsWrap.innerHTML = '';
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = `carousel__dot${i === current ? ' active' : ''}`;
+      dot.type = 'button';
+      dot.setAttribute('aria-label', `Ir para a foto ${i + 1}`);
+      dot.addEventListener('click', () => {
+        goTo(i);
+        resetAuto();
+      });
+      dotsWrap.appendChild(dot);
+    });
+  };
+
+  const goTo = (idx) => {
+    current = Math.max(0, Math.min(idx, slides.length - 1));
+    track.style.transform = `translateX(-${current * 100}%)`;
+
+    qsa('.carousel__dot', dotsWrap).forEach((dot, i) => {
+      dot.classList.toggle('active', i === current);
+      dot.setAttribute('aria-selected', i === current ? 'true' : 'false');
+    });
+
+    btnPrev.disabled = current === 0;
+    btnNext.disabled = current === slides.length - 1;
+  };
+
+  btnPrev.addEventListener('click', () => {
+    goTo(current - 1);
+    resetAuto();
+  });
+
+  btnNext.addEventListener('click', () => {
+    goTo(current + 1);
+    resetAuto();
+  });
+
+  const startAuto = () => {
+    autoTimer = setInterval(() => {
+      goTo(current >= slides.length - 1 ? 0 : current + 1);
+    }, 4500);
+  };
+
+  const resetAuto = () => {
+    clearInterval(autoTimer);
+    startAuto();
+  };
+
+  track.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  }, { passive: true });
+
+  track.addEventListener('touchend', (e) => {
+    if (!isDragging) return;
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) {
+      diff > 0 ? goTo(current + 1) : goTo(current - 1);
+      resetAuto();
+    }
+    isDragging = false;
+  });
+
+  track.addEventListener('mousedown', (e) => {
+    startX = e.clientX;
+    isDragging = true;
+    e.preventDefault();
+  });
+
+  document.addEventListener('mouseup', (e) => {
+    if (!isDragging) return;
+    const diff = startX - e.clientX;
+    if (Math.abs(diff) > 60) {
+      diff > 0 ? goTo(current + 1) : goTo(current - 1);
+      resetAuto();
+    }
+    isDragging = false;
+  });
+
+  const carousel = track.closest('.photo-carousel');
+  if (carousel) {
+    carousel.addEventListener('mouseenter', () => clearInterval(autoTimer));
+    carousel.addEventListener('mouseleave', startAuto);
+  }
+
+  renderDots();
+  goTo(0);
+  startAuto();
+})();
+
+/* ----------------------------------------------------------------
+   8. CONTACT FORM — validation + submit feedback
 ---------------------------------------------------------------- */
 (function initContactForm() {
   const form    = qs('#contactForm');
@@ -370,7 +480,7 @@ const qsa = (sel, root = document) => [...root.querySelectorAll(sel)];
 })();
 
 /* ----------------------------------------------------------------
-   8. CURRENT YEAR in footer
+   9. CURRENT YEAR in footer
 ---------------------------------------------------------------- */
 (function setYear() {
   const el = qs('#currentYear');
@@ -378,7 +488,7 @@ const qsa = (sel, root = document) => [...root.querySelectorAll(sel)];
 })();
 
 /* ----------------------------------------------------------------
-   9. ACTIVE NAV LINK — highlight based on scroll position
+   10. ACTIVE NAV LINK — highlight based on scroll position
 ---------------------------------------------------------------- */
 (function initActiveNav() {
   const sections = qsa('main section[id]');
@@ -406,7 +516,7 @@ const qsa = (sel, root = document) => [...root.querySelectorAll(sel)];
 })();
 
 /* ----------------------------------------------------------------
-   10. WHATSAPP FLOAT — show after a small delay
+   11. WHATSAPP FLOAT — show after a small delay
 ---------------------------------------------------------------- */
 (function initWhatsappFloat() {
   const btn = qs('.whatsapp-float');
